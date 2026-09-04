@@ -1,6 +1,6 @@
 backend:
-  name: Github
-  repo: chrisjuandaalz/CRPWebsite # Nanti diubah sesuai nama repo GitHub kamu
+  name: github
+  repo: chrisjuandaalz/CRPWebsite
   branch: main
 
 media_folder: "assets/images/blog"
