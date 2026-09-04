@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Article | Christian Rara & Partners</title>
+  <meta id="meta-description" name="description" content="Insights on succession planning, insurance strategy, and estate liquidity from Christian Rara & Partners.">
+  <link rel="icon" type="image/png" href="cr-partners-logo.png">
+  <meta id="og-type" property="og:type" content="article">
+  <meta id="og-title" property="og:title" content="Article | Christian Rara & Partners">
+  <meta id="og-description" property="og:description" content="Insights on succession planning, insurance strategy, and estate liquidity from Christian Rara & Partners.">
+  <meta id="og-image" property="og:image" content="https://crplegacy.biz.id/cr-partners-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,6 +125,12 @@
 
         document.title = `${post.title || 'Article'} | Christian Rara & Partners`;
         document.getElementById('page-title').textContent = document.title;
+        document.getElementById('meta-description').setAttribute('content', post.summary || '');
+        document.getElementById('og-title').setAttribute('content', document.title);
+        document.getElementById('og-description').setAttribute('content', post.summary || '');
+        if (post.image) {
+          document.getElementById('og-image').setAttribute('content', new URL(post.image, window.location.origin).href);
+        }
 
         container.innerHTML = `
           <span class="text-xs text-[#C5A880] font-semibold uppercase tracking-wider block mb-4">${escapeHtml(post.category)}</span>

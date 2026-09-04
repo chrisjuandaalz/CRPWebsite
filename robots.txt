@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://crplegacy.biz.id/sitemap.xml
