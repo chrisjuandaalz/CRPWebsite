@@ -62,84 +62,32 @@
         Book Your Private Advisory Session
       </h1>
       <p class="text-slate-300 text-base md:text-lg leading-relaxed">
-        Provide your consultation details below, then pick a suitable schedule directly on our Google Calendar. All communications are strictly confidential.
+        Pick a suitable schedule and fill in your details directly on our online booking calendar below. All communications are strictly confidential.
       </p>
     </div>
 
-    <!-- Main Container: Pre-Consultation Form & Calendar Embed -->
-    <div class="grid lg:grid-cols-12 gap-10 items-start">
-      
-      <!-- Left Column: Pre-Consultation Details Form -->
-      <div class="lg:col-span-5 space-y-6">
-        
-        <div class="p-8 bg-bubble-gold-gradient border border-[#C5A880]/40 rounded-3xl shadow-2xl backdrop-blur-md">
-          <h2 class="text-xl font-bold text-white mb-2">1. Pre-Consultation Details</h2>
-          <p class="text-xs text-slate-400 mb-6">Please provide your contact information and advisory interest before selecting a time slot.</p>
+    <!-- Booking Embed -->
+    <div class="max-w-3xl mx-auto p-4 md:p-6 bg-bubble-gradient border border-[#1E2D4A] rounded-3xl shadow-2xl relative">
 
-          <form action="mailto:info@crplegacy.biz.id" method="post" enctype="text/plain" class="space-y-5">
-            
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Full Name</label>
-              <input type="text" name="Client_Name" required placeholder="John Doe" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Email Address</label>
-              <input type="email" name="Client_Email" required placeholder="name@company.com" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Phone / WhatsApp Number</label>
-              <input type="tel" name="Client_Phone" required placeholder="+62 812 3456 7890" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Consultation Domain</label>
-              <select name="Consultation_Domain" required class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C5A880]">
-                <option value="For Business">For Business</option>
-                <option value="For Personal">For Personal</option>
-                <option value="Policy Review">Policy Review</option>
-                <option value="Claim Advisory">Claim Advisory</option>
-              </select>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Notes / Advisory Needs (Optional)</label>
-              <textarea name="Notes" rows="3" placeholder="Briefly describe your current protection baseline or goals..." class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]"></textarea>
-            </div>
-
-            <button type="submit" class="w-full bg-[#0A192F] border border-[#C5A880] text-[#C5A880] font-bold text-xs uppercase tracking-widest py-3 rounded-xl hover:bg-[#C5A880] hover:text-[#0A192F] transition-all duration-300">
-              Submit Pre-Consultation Details &rarr;
-            </button>
-          </form>
-        </div>
-
-        <!-- Privacy Assurance -->
-        <div class="p-6 bg-bubble-gradient border border-[#1E2D4A] rounded-2xl text-xs text-slate-400 space-y-2">
-          <div class="text-[#C5A880] font-bold uppercase tracking-wider">🔒 Discretion Guaranteed</div>
-          <p>We respect your privacy. Every information submitted is used solely for Christian Juanda's pre-session risk analysis.</p>
-        </div>
-
+      <div class="mb-4 px-2 flex items-center justify-between">
+        <h2 class="text-xl font-bold text-white">Select Session Date & Time</h2>
+        <span class="text-xs text-[#C5A880] font-medium">Real-Time Availability</span>
       </div>
 
-      <!-- Right Column: Google Calendar Embed Box -->
-      <div class="lg:col-span-7 p-4 md:p-6 bg-bubble-gradient border border-[#1E2D4A] rounded-3xl shadow-2xl relative">
-        
-        <div class="mb-4 px-2 flex items-center justify-between">
-          <h2 class="text-xl font-bold text-white">2. Select Session Date & Time</h2>
-          <span class="text-xs text-[#C5A880] font-medium">Real-Time Availability</span>
-        </div>
+      <!-- Odoo Appointment Booking begin -->
+      <div class="w-full bg-white rounded-2xl overflow-hidden shadow-inner">
+        <iframe src="https://crpa-i2c.odoo.com/appointment/1" style="border: 0" width="100%" height="1100" frameborder="0" loading="lazy"></iframe>
+      </div>
+      <!-- end Odoo Appointment Booking -->
 
-        <!-- Google Calendar Appointment Scheduling begin -->
-        <div class="w-full bg-white rounded-2xl overflow-hidden shadow-inner min-h-[600px]">
-          <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ101a82fg-tIkFU_4sLQ9TN2ik-UO8aT9ay_yNhvMTWya6A27t3adzXkSZWqQ7Mc2Wa-LSMzL6w?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-        </div>
-        <!-- end Google Calendar Appointment Scheduling -->
-        
-        <p class="text-[11px] text-center text-slate-400 mt-4">
-          Google Meet access & calendar invitation will be automatically dispatched to your email address upon confirmation.
-        </p>
+      <p class="text-[11px] text-center text-slate-400 mt-4">
+        Meeting link & confirmation will be automatically dispatched to your email address upon booking.
+      </p>
 
+      <!-- Privacy Assurance -->
+      <div class="mt-6 p-6 bg-bubble-gold-gradient border border-[#C5A880]/30 rounded-2xl text-xs text-slate-300 space-y-2">
+        <div class="text-[#C5A880] font-bold uppercase tracking-wider">🔒 Discretion Guaranteed</div>
+        <p>We respect your privacy. Every information submitted is used solely for Christian Juanda's pre-session risk analysis.</p>
       </div>
 
     </div>
