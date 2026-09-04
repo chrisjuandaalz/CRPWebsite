@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Insights | Christian Rara & Partners</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .bg-bubble-gradient { background: linear-gradient(135deg, rgba(17, 34, 64, 0.95) 0%, rgba(10, 25, 47, 0.98) 100%); }
+    .bg-bubble-gold-gradient { background: linear-gradient(135deg, rgba(197, 168, 128, 0.15) 0%, rgba(17, 34, 64, 0.9) 100%); }
+    .hover-glow:hover {
+      box-shadow: 0 10px 30px -10px rgba(197, 168, 128, 0.25);
+      border-color: rgba(197, 168, 128, 0.6);
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body class="bg-[#0A192F] text-[#E2E8F0] antialiased selection:bg-[#C5A880] selection:text-[#0A192F]">
+
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-50 bg-[#0A192F]/90 backdrop-blur-md border-b border-[#1E2D4A]">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <img src="cr-partners-logo.png" alt="CR & Partners Logo" class="h-10 w-auto object-contain rounded-md">
+        <div class="flex flex-col">
+          <span class="font-extrabold text-base md:text-lg tracking-tight text-white leading-none group-hover:text-[#C5A880] transition-colors">
+            CHRISTIAN RARA & PARTNERS
+          </span>
+          <span class="text-[#C5A880] text-[10px] uppercase tracking-[0.2em] font-medium mt-1">
+            Insurance Strategist
+          </span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex space-x-8 text-sm font-medium text-slate-300">
+        <a href="index.html" class="hover:text-[#C5A880] transition-colors">Home</a>
+        <a href="about.html" class="hover:text-[#C5A880] transition-colors">About Us</a>
+        <a href="services.html" class="hover:text-[#C5A880] transition-colors">Our Services</a>
+        <a href="blog.html" class="text-[#C5A880] font-semibold">Blog</a>
+        <a href="contact.html" class="hover:text-[#C5A880] transition-colors">Contact Us</a>
+      </nav>
+
+      <a href="privconsul.html" class="bg-gradient-to-r from-[#C5A880] to-[#D4AF37] text-[#0A192F] text-sm font-bold px-6 py-2.5 rounded-md hover:brightness-110 transition-all duration-300 shadow-lg shadow-[#C5A880]/20">
+        Private Consultation
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-20 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-flex items-center gap-2 text-[#C5A880] font-semibold text-xs uppercase tracking-widest px-4 py-1.5 bg-[#C5A880]/10 border border-[#C5A880]/20 rounded-full mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#C5A880]"></span>
+        Strategic Insights
+      </span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white">Thought Leadership & Articles</h1>
+      <p class="text-slate-400 mt-4 text-sm md:text-base">Perspectives on family business succession, insurance policy reprogramming, and estate liquidity.</p>
+    </div>
+
+    <!-- Container Grid Artikel Sveltia CMS -->
+    <div id="blog-posts-container" class="grid md:grid-cols-3 gap-8">
+      <!-- Loading State awal -->
+      <div class="col-span-3 text-center py-12 text-slate-400">
+        <p class="text-sm">Loading articles from Sveltia CMS...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="border-t border-[#1E2D4A] bg-[#0A192F] py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center justify-between">
+      <div class="flex items-start gap-4">
+        <img src="cr-partners-logo.png" alt="CR & Partners Logo Footer" class="h-14 w-auto object-contain rounded-md">
+        <div>
+          <div class="font-extrabold text-lg text-white leading-tight">CHRISTIAN RARA & PARTNERS</div>
+          <div class="text-[#C5A880] text-xs uppercase tracking-widest font-semibold mt-1 mb-2">Insurance Strategist</div>
+          <p class="text-xs text-slate-400 max-w-sm">Strategic protection and insurance advisory designed around objective deliverables and authentic client trust.</p>
+        </div>
+      </div>
+      <div class="text-left md:text-right text-xs text-slate-500 space-y-2">
+        <p>&copy; 2026 Christian Rara & Partners. All rights reserved.</p>
+        <p>Insurance Strategist & Executive Risk Advisory.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SVELTIA CMS AUTO-FETCH SCRIPT -->
+  <script>
+    async function loadSveltiaBlogPosts() {
+      const container = document.getElementById('blog-posts-container');
+      
+      try {
+        // Skrip ini membaca daftar artikel JSON yang dibuat dari Sveltia CMS di folder /content/blog/
+        // Untuk tahap lokal/demo, kita tampilkan contoh struktur sampel:
+        const samplePosts = [
+          {
+            title: "Gen 1 to Gen 2 Transfer Strategies",
+            category: "Succession Planning",
+            summary: "How to navigate family business leadership transitions without causing operational friction or disputes.",
+            date: "2026-08-15"
+          },
+          {
+            title: "The Hidden Cost of Overlapping Premiums",
+            category: "Policy Audit",
+            summary: "Why reprogramming your insurance portfolio can multiply protection coverage while cutting annual premium budgets.",
+            date: "2026-08-10"
+          },
+          {
+            title: "Structuring Boedel Waris Cash Liquidity",
+            category: "Estate Liquidity",
+            summary: "Ensuring instant cash availability for legal obligations and taxes during estate execution.",
+            date: "2026-08-01"
+          }
+        ];
+
+        container.innerHTML = samplePosts.map(post => `
+          <article class="p-6 bg-bubble-gradient border border-[#1E2D4A] rounded-3xl hover-glow transition-all duration-500 flex flex-col justify-between">
+            <div>
+              <span class="text-xs text-[#C5A880] font-semibold uppercase tracking-wider block mb-2">${post.category}</span>
+              <h2 class="text-xl font-bold text-white mb-3 hover:text-[#C5A880] transition-colors">
+                <a href="#">${post.title}</a>
+              </h2>
+              <p class="text-slate-400 text-xs leading-relaxed mb-6">${post.summary}</p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-[#1E2D4A] text-[11px] text-slate-500">
+              <span>By Christian Juanda • ${post.date}</span>
+              <a href="#" class="text-[#C5A880] font-semibold hover:underline">Read Article &rarr;</a>
+            </div>
+          </article>
+        `).join('');
+
+      } catch (error) {
+        container.innerHTML = `<div class="col-span-3 text-center text-red-400 py-8">Failed to load articles.</div>`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadSveltiaBlogPosts);
+  </script>
+</body>
+</html>

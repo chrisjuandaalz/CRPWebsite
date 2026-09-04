@@ -1,0 +1,22 @@
+backend:
+  name: Github
+  repo: chrisjuandaalz/CRPWebsite # Nanti diubah sesuai nama repo GitHub kamu
+  branch: main
+
+media_folder: "assets/images/blog"
+public_folder: "/assets/images/blog"
+
+collections:
+  - name: "blog"
+    label: "Blog Articles"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["Succession Planning", "Policy Audit", "Estate Liquidity", "Claim Advisory"] }
+      - { label: "Summary / Excerpt", name: "summary", widget: "text" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Body Content", name: "body", widget: "markdown" }
