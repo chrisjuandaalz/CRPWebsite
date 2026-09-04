@@ -1,0 +1,11 @@
+{
+  "name": "crp-website-blog-build",
+  "private": true,
+  "description": "Generates static blog pages from content/blog/*.json (Sveltia CMS output) so each article has real, crawlable meta tags.",
+  "scripts": {
+    "build:blog": "node scripts/build-blog.js"
+  },
+  "dependencies": {
+    "marked": "9.1.6"
+  }
+}
