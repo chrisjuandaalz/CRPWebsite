@@ -26,7 +26,20 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, phone, subject, message, website } = req.body || {};
+  const { name, email, phone, subject, message, website, lang } = req.body || {};
+  const isId = lang === 'id';
+
+  const messages = {
+    validation: isId
+      ? 'Mohon isi nama, email yang valid, dan pesan Anda.'
+      : 'Please fill in your name, a valid email, and a message.',
+    misconfigured: isId
+      ? 'Server bermasalah. Silakan hubungi kami lewat telepon.'
+      : 'Server misconfigured. Please contact us by phone instead.',
+    failed: isId
+      ? 'Pesan tidak bisa terkirim saat ini. Silakan coba lagi sebentar lagi atau hubungi kami lewat telepon.'
+      : 'Could not send your message right now. Please try again shortly or reach us by phone.',
+  };
 
   // Honeypot: real visitors never fill this hidden field. Bots usually do.
   // Pretend success so bots don't learn to look for a different signal.
@@ -35,13 +48,13 @@ export default async function handler(req, res) {
   }
 
   if (!name || !email || !message || !isValidEmail(email)) {
-    return res.status(400).json({ error: 'Please fill in your name, a valid email, and a message.' });
+    return res.status(400).json({ error: messages.validation });
   }
 
   const { ODOO_URL, ODOO_DB, ODOO_USERNAME, ODOO_API_KEY } = process.env;
   if (!ODOO_URL || !ODOO_DB || !ODOO_USERNAME || !ODOO_API_KEY) {
     console.error('Missing Odoo environment variables');
-    return res.status(500).json({ error: 'Server misconfigured. Please contact us by phone instead.' });
+    return res.status(500).json({ error: messages.misconfigured });
   }
 
   try {
@@ -63,6 +76,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error('Odoo lead creation failed:', err.message);
-    return res.status(502).json({ error: 'Could not send your message right now. Please try again shortly or reach us by phone.' });
+    return res.status(502).json({ error: messages.failed });
   }
 }

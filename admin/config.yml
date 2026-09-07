@@ -14,9 +14,12 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     format: "json"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title (English)", name: "title", widget: "string" }
+      - { label: "Title (Bahasa Indonesia)", name: "title_id", widget: "string", required: false, hint: "Leave blank to fall back to the English title on the Indonesian site." }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Category", name: "category", widget: "select", options: ["Succession Planning", "Policy Audit", "Estate Liquidity", "Claim Advisory"] }
-      - { label: "Summary / Excerpt", name: "summary", widget: "text" }
+      - { label: "Summary / Excerpt (English)", name: "summary", widget: "text" }
+      - { label: "Summary / Excerpt (Bahasa Indonesia)", name: "summary_id", widget: "text", required: false, hint: "Leave blank to fall back to the English summary on the Indonesian site." }
       - { label: "Cover Image", name: "image", widget: "image", required: false }
-      - { label: "Body Content", name: "body", widget: "markdown" }
+      - { label: "Body Content (English)", name: "body", widget: "markdown" }
+      - { label: "Body Content (Bahasa Indonesia)", name: "body_id", widget: "markdown", required: false, hint: "Leave blank to fall back to the English body on the Indonesian site." }
