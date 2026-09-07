@@ -136,17 +136,52 @@
 
       </div>
 
-      <!-- Column 2: Inquiry Form (embedded from CRM) -->
-      <div class="lg:col-span-7 p-4 md:p-6 bg-bubble-gold-gradient border border-[#C5A880]/40 rounded-3xl shadow-2xl backdrop-blur-md">
-        <div class="p-4 md:p-4 pb-0">
-          <h2 class="text-2xl font-bold text-white mb-2">Send Us a Direct Message</h2>
-          <p class="text-slate-400 text-sm mb-6">Your inquiry goes straight to our advisory team's CRM, so nothing gets missed.</p>
-        </div>
+      <!-- Column 2: Inquiry Form (submits to Odoo CRM in the background via /api/contact) -->
+      <div class="lg:col-span-7 p-8 md:p-10 bg-bubble-gold-gradient border border-[#C5A880]/40 rounded-3xl shadow-2xl backdrop-blur-md">
+        <h2 class="text-2xl font-bold text-white mb-2">Send Us a Direct Message</h2>
+        <p class="text-slate-400 text-sm mb-8">Your inquiry goes straight to our advisory team's CRM, so nothing gets missed.</p>
 
-        <!-- Odoo Contact Form Embed -->
-        <div class="w-full bg-white rounded-2xl overflow-hidden shadow-inner">
-          <iframe src="https://crpa-i2c.odoo.com/contactus" style="border: 0" width="100%" height="1400" frameborder="0" loading="lazy"></iframe>
-        </div>
+        <form id="contact-form" class="space-y-6">
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Full Name</label>
+              <input type="text" name="name" required placeholder="John Doe" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Phone / WhatsApp (Optional)</label>
+              <input type="tel" name="phone" placeholder="+62 812 3456 7890" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Email Address</label>
+            <input type="email" name="email" required placeholder="name@company.com" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Subject</label>
+            <input type="text" name="subject" required placeholder="Inquiry regarding Business Succession / Insurance Strategy" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Message</label>
+            <textarea name="message" rows="6" required placeholder="Please state your specific requirements or initial questions..." class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]"></textarea>
+          </div>
+
+          <!-- Honeypot field: hidden from real visitors via CSS, bots often fill it anyway -->
+          <div class="hidden" aria-hidden="true">
+            <label>Website</label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p id="contact-form-error" class="hidden text-sm text-red-400"></p>
+          <p id="contact-form-success" class="hidden text-sm text-[#C5A880]">Thank you — your message has been sent. Our team will get back to you shortly.</p>
+
+          <button type="submit" id="contact-form-submit" class="w-full bg-gradient-to-r from-[#C5A880] to-[#D4AF37] text-[#0A192F] font-extrabold text-sm py-4 rounded-xl hover:brightness-110 transition-all duration-300 shadow-xl shadow-[#C5A880]/15 disabled:opacity-60 disabled:cursor-not-allowed">
+            Send Message &rarr;
+          </button>
+        </form>
       </div>
 
     </div>
@@ -171,5 +206,41 @@
     </div>
   </footer>
 
+  <!-- Submits the form to /api/contact in the background (creates a CRM lead in Odoo) -->
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('contact-form-submit');
+      const errorEl = document.getElementById('contact-form-error');
+      const successEl = document.getElementById('contact-form-success');
+
+      errorEl.classList.add('hidden');
+      successEl.classList.add('hidden');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+
+        successEl.classList.remove('hidden');
+        form.reset();
+      } catch (err) {
+        errorEl.textContent = err.message || 'Something went wrong. Please try again.';
+        errorEl.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Message &rarr;';
+      }
+    });
+  </script>
 </body>
 </html>
