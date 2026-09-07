@@ -136,33 +136,17 @@
 
       </div>
 
-      <!-- Column 2: Email Inquiry Form -->
-      <div class="lg:col-span-7 p-8 md:p-10 bg-bubble-gold-gradient border border-[#C5A880]/40 rounded-3xl shadow-2xl backdrop-blur-md">
-        <h2 class="text-2xl font-bold text-white mb-2">Send Us a Direct Message</h2>
-        <p class="text-slate-400 text-sm mb-8">All communications are received directly by our advisory team at info@crplegacy.biz.id.</p>
+      <!-- Column 2: Inquiry Form (embedded from CRM) -->
+      <div class="lg:col-span-7 p-4 md:p-6 bg-bubble-gold-gradient border border-[#C5A880]/40 rounded-3xl shadow-2xl backdrop-blur-md">
+        <div class="p-4 md:p-4 pb-0">
+          <h2 class="text-2xl font-bold text-white mb-2">Send Us a Direct Message</h2>
+          <p class="text-slate-400 text-sm mb-6">Your inquiry goes straight to our advisory team's CRM, so nothing gets missed.</p>
+        </div>
 
-        <form action="mailto:info@crplegacy.biz.id" method="post" enctype="text/plain" class="space-y-6">
-          
-          <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Sender Email Address</label>
-            <input type="email" name="Sender_Email" required placeholder="name@company.com" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Subject</label>
-            <input type="text" name="Subject" required placeholder="Inquiry regarding Business Succession / Insurance Strategy" class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]">
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Message</label>
-            <textarea name="Message" rows="6" required placeholder="Please state your specific requirements or initial questions..." class="w-full bg-[#0A192F] border border-[#1E2D4A] rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C5A880]"></textarea>
-          </div>
-
-          <!-- Updated Button Text -->
-          <button type="submit" class="w-full bg-gradient-to-r from-[#C5A880] to-[#D4AF37] text-[#0A192F] font-extrabold text-sm py-4 rounded-xl hover:brightness-110 transition-all duration-300 shadow-xl shadow-[#C5A880]/15">
-            Send Message &rarr;
-          </button>
-        </form>
+        <!-- Odoo Contact Form Embed -->
+        <div class="w-full bg-white rounded-2xl overflow-hidden shadow-inner">
+          <iframe src="https://crpa-i2c.odoo.com/contactus" style="border: 0" width="100%" height="1400" frameborder="0" loading="lazy"></iframe>
+        </div>
       </div>
 
     </div>
