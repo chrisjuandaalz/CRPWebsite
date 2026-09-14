@@ -280,6 +280,7 @@
 
         successEl.classList.remove('hidden');
         form.reset();
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'contact_form' });
       } catch (err) {
         errorEl.textContent = err.message || 'Terjadi kesalahan. Silakan coba lagi.';
         errorEl.classList.remove('hidden');
