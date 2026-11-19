@@ -308,6 +308,7 @@ ${siteHeader(lang, true)}
 
 ${siteFooter(lang)}
 
+  <script src="/chat-widget.js" defer></script>
 </body>
 </html>
 `;
