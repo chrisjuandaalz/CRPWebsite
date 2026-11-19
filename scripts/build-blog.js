@@ -352,14 +352,16 @@ function updateBlogListing(posts, lang) {
 }
 
 function writeSitemap(posts) {
+  const buildDate = new Date().toISOString().slice(0, 10);
   const urls = [];
   for (const lang of ['id', 'en']) {
     const p = LANGS[lang].urlPrefix;
     for (const page of STATIC_PAGES) {
-      urls.push(`  <url>\n    <loc>${SITE_URL}/${p}${page.loc}</loc>\n    <priority>${page.priority}</priority>\n  </url>`);
+      urls.push(`  <url>\n    <loc>${SITE_URL}/${p}${page.loc}</loc>\n    <lastmod>${buildDate}</lastmod>\n    <priority>${page.priority}</priority>\n  </url>`);
     }
     for (const post of posts) {
-      urls.push(`  <url>\n    <loc>${SITE_URL}/${p}blog/${post.slug}.html</loc>\n    <priority>0.6</priority>\n  </url>`);
+      const lastmod = isoDate(post.date).slice(0, 10) || buildDate;
+      urls.push(`  <url>\n    <loc>${SITE_URL}/${p}blog/${post.slug}.html</loc>\n    <lastmod>${lastmod}</lastmod>\n    <priority>0.6</priority>\n  </url>`);
     }
   }
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;
