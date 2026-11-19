@@ -27,7 +27,7 @@ const CATEGORY_ID = {
 };
 
 const STATIC_PAGES = [
-  { loc: 'index.html', priority: '1.0' },
+  { loc: '', priority: '1.0' },
   { loc: 'about.html', priority: '0.8' },
   { loc: 'services.html', priority: '0.8' },
   { loc: 'blog.html', priority: '0.7' },
@@ -117,7 +117,7 @@ function siteHeader(lang, activeBlog) {
   const blogClass = activeBlog ? 'text-[#C5A880] font-semibold' : 'hover:text-[#C5A880] transition-colors';
   return `  <header class="sticky top-0 z-50 bg-[#0A192F]/90 backdrop-blur-md border-b border-[#1E2D4A]">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/${p}index.html" class="flex items-center gap-3 group">
+      <a href="/${p}" class="flex items-center gap-3 group">
         <img src="/cr-partners-logo.png" alt="CR & Partners Logo" class="h-10 w-auto object-contain rounded-md">
         <div class="flex flex-col">
           <span class="font-extrabold text-base md:text-lg tracking-tight text-white leading-none group-hover:text-[#C5A880] transition-colors">
@@ -129,7 +129,7 @@ function siteHeader(lang, activeBlog) {
         </div>
       </a>
       <nav class="hidden lg:flex space-x-8 text-sm font-medium text-slate-300">
-        <a href="/${p}index.html" class="hover:text-[#C5A880] transition-colors">${s.home}</a>
+        <a href="/${p}" class="hover:text-[#C5A880] transition-colors">${s.home}</a>
         <a href="/${p}about.html" class="hover:text-[#C5A880] transition-colors">${s.about}</a>
         <a href="/${p}services.html" class="hover:text-[#C5A880] transition-colors">${s.services}</a>
         <a href="/${p}blog.html" class="${blogClass}">${s.blog}</a>
@@ -158,7 +158,7 @@ function siteHeader(lang, activeBlog) {
     <!-- Mobile menu panel -->
     <nav id="mobile-menu" class="hidden lg:hidden border-t border-[#1E2D4A] bg-[#0A192F] px-6 py-4 flex flex-col space-y-4 text-sm font-medium text-slate-300">
       <a href="/${otherHref}" class="flex items-center gap-2 text-xs font-bold text-slate-400">${s.switchTo} <span class="text-white">${s.switchToLang}</span></a>
-      <a href="/${p}index.html" class="hover:text-[#C5A880] transition-colors">${s.home}</a>
+      <a href="/${p}" class="hover:text-[#C5A880] transition-colors">${s.home}</a>
       <a href="/${p}about.html" class="hover:text-[#C5A880] transition-colors">${s.about}</a>
       <a href="/${p}services.html" class="hover:text-[#C5A880] transition-colors">${s.services}</a>
       <a href="/${p}blog.html" class="${blogClass}">${s.blog}</a>
