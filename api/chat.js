@@ -9,6 +9,7 @@
 // cold start) so the chatbot still works without it.
 
 const DEFAULT_DAILY_LIMIT = 20;
+const DEFAULT_MODEL = 'gemini-3.8-flash';
 const WARNING_THRESHOLD_PCT = 15; // warn once remaining quota drops to this %
 const MAX_HISTORY_TURNS = 8;
 
@@ -132,8 +133,9 @@ export default async function handler(req, res) {
   ];
 
   try {
+    const model = process.env.GEMINI_MODEL || DEFAULT_MODEL;
     const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
