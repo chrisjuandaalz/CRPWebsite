@@ -132,39 +132,48 @@ export default async function handler(req, res) {
     { role: 'user', parts: [{ text: message.trim() }] },
   ];
 
-  try {
-    const model = process.env.GEMINI_MODEL || DEFAULT_MODEL;
-    const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`,
-      {
+  const model = process.env.GEMINI_MODEL || DEFAULT_MODEL;
+  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
+  const body = JSON.stringify({
+    system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+    contents,
+    generationConfig: { maxOutputTokens: 400, temperature: 0.4 },
+  });
+
+  // Gemini's free-tier flash model occasionally returns a transient 503
+  // ("high demand") — retry once after a short delay before giving up.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const geminiRes = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents,
-          generationConfig: { maxOutputTokens: 400, temperature: 0.4 },
-        }),
+        body,
+      });
+
+      const data = await geminiRes.json();
+      if (!geminiRes.ok) {
+        const isOverloaded = geminiRes.status === 503;
+        console.error('Gemini API error:', data.error?.message || geminiRes.status);
+        if (isOverloaded && attempt === 0) {
+          await new Promise((r) => setTimeout(r, 700));
+          continue;
+        }
+        return res.status(200).json({ reply: fallbackMessage('failed', isId) });
       }
-    );
 
-    const data = await geminiRes.json();
-    if (!geminiRes.ok) {
-      console.error('Gemini API error:', data.error?.message || geminiRes.status);
+      const reply = data.candidates?.[0]?.content?.parts?.map((p) => p.text).join('').trim();
+      if (!reply) {
+        return res.status(200).json({ reply: fallbackMessage('failed', isId) });
+      }
+
+      return res.status(200).json({
+        reply,
+        quotaWarning: remainingPct <= WARNING_THRESHOLD_PCT,
+        remainingPct: Math.max(0, Math.round(remainingPct)),
+      });
+    } catch (err) {
+      console.error('Gemini request failed:', err.message);
       return res.status(200).json({ reply: fallbackMessage('failed', isId) });
     }
-
-    const reply = data.candidates?.[0]?.content?.parts?.map((p) => p.text).join('').trim();
-    if (!reply) {
-      return res.status(200).json({ reply: fallbackMessage('failed', isId) });
-    }
-
-    return res.status(200).json({
-      reply,
-      quotaWarning: remainingPct <= WARNING_THRESHOLD_PCT,
-      remainingPct: Math.max(0, Math.round(remainingPct)),
-    });
-  } catch (err) {
-    console.error('Gemini request failed:', err.message);
-    return res.status(200).json({ reply: fallbackMessage('failed', isId) });
   }
 }
