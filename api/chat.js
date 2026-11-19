@@ -9,7 +9,7 @@
 // cold start) so the chatbot still works without it.
 
 const DEFAULT_DAILY_LIMIT = 20;
-const DEFAULT_MODEL = 'gemini-3.8-flash';
+const DEFAULT_MODEL = 'gemini-3.5-flash-lite';
 const WARNING_THRESHOLD_PCT = 15; // warn once remaining quota drops to this %
 const MAX_HISTORY_TURNS = 8;
 
