@@ -1,0 +1,25 @@
+# Christian Rara & Partners (CRP)
+
+> CRP is an insurance strategy and succession planning advisory based in Tangerang, Indonesia, serving family business owners and high-net-worth individuals (HNWI). The site is bilingual: Indonesian at the root, English under /en/.
+
+## Pages
+
+- [Home (ID)](https://crplegacy.biz.id/): Overview of CRP's advisory services and philosophy.
+- [Home (EN)](https://crplegacy.biz.id/en/): English version of the homepage.
+- [About (ID)](https://crplegacy.biz.id/about.html): Profile of Managing Partner Christian Juanda (QWP, QLP, AEPP), his credentials, and his professional manifesto.
+- [About (EN)](https://crplegacy.biz.id/en/about.html): English version of the About page.
+- [Services (ID)](https://crplegacy.biz.id/services.html): Financial risk analysis, insurance policy placement, claim advocacy, and frequently asked questions.
+- [Services (EN)](https://crplegacy.biz.id/en/services.html): English version of the Services page.
+- [Blog (ID)](https://crplegacy.biz.id/blog.html): Articles on family business succession planning, insurance policy strategy, and estate liquidity.
+- [Blog (EN)](https://crplegacy.biz.id/en/blog.html): English version of the Blog.
+- [Contact (ID)](https://crplegacy.biz.id/contact.html): Office address, email, and contact form.
+- [Contact (EN)](https://crplegacy.biz.id/en/contact.html): English version of the Contact page.
+- [Private Consultation (ID)](https://crplegacy.biz.id/privconsul.html): Booking calendar for a confidential private advisory session.
+- [Private Consultation (EN)](https://crplegacy.biz.id/en/privconsul.html): English version of the Private Consultation page.
+
+## Key facts
+
+- CRP does not offer discounts of any kind on advisory services; every client receives the same quality of advice.
+- In the policy application process, every piece of data, decision, and signature comes directly from the client — nothing is filled in or signed on their behalf.
+- CRP has served 500+ clients, including family business owners and high-net-worth individuals (HNWI) in Indonesia.
+- Managing Partner Christian Juanda has been active in the insurance industry since 2018 and holds the QWP (Qualified Wealth Planner), QLP (Qualified Legacy Planner), and AEPP (Associate Estate Planning Practitioner) credentials.
