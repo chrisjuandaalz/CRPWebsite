@@ -8,21 +8,21 @@
   const strings = isId
     ? {
         launcherLabel: 'Tanya kami',
-        title: 'Asisten CRP',
-        subtitle: 'Jawaban cepat seputar layanan kami',
+        title: 'Ciara',
+        subtitle: 'Asisten AI Christian Rara & Partners',
         placeholder: 'Tulis pertanyaan Anda…',
         send: 'Kirim',
-        greeting: 'Halo! Saya asisten AI Christian Rara & Partners. Ada yang bisa saya bantu seputar layanan advisory asuransi atau suksesi kami?',
+        greeting: 'Halo! Saya Ciara, asisten AI Christian Rara & Partners. Ada yang bisa saya bantu seputar layanan advisory asuransi atau suksesi kami?',
         thinking: 'Mengetik…',
         disclaimer: 'Jawaban bersifat umum, bukan nasihat personal. Untuk kebutuhan spesifik, jadwalkan konsultasi pribadi.',
       }
     : {
         launcherLabel: 'Ask us',
-        title: 'CRP Assistant',
-        subtitle: 'Quick answers about our services',
+        title: 'Ciara',
+        subtitle: "Christian Rara & Partners' AI assistant",
         placeholder: 'Type your question…',
         send: 'Send',
-        greeting: "Hi! I'm Christian Rara & Partners' AI assistant. What would you like to know about our insurance or succession advisory services?",
+        greeting: "Hi! I'm Ciara, Christian Rara & Partners' AI assistant. What would you like to know about our insurance or succession advisory services?",
         thinking: 'Typing…',
         disclaimer: 'Answers are general information, not personal advice. For specific needs, please book a private consultation.',
       };
