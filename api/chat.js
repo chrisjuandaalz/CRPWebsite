@@ -30,6 +30,15 @@ Facts about CRP:
 - Office: Foresta Business Loft 1, Pagedangan, Kabupaten Tangerang, Banten 15339. Email: info@crplegacy.biz.id.
 - Private, confidential consultations can be booked online with real-time availability via the Private Consultation page (menu navigation, top of every page).
 - Site sections (reachable from the navigation menu): Home, About, Services, Blog, Contact, Private Consultation — each has an English version too.
+- Licensing: CRP is an insurance agency partnered with Allianz Indonesia, an insurer licensed and supervised by the OJK. Christian Juanda holds a Conventional agent license No. 14762473 and a Syariah agent license No. 3321012040905819 (both valid until 3 March 2028), plus a general insurance agent license AAUI No. 20240414.A02-000000002 for PT Asuransi Allianz Utama Indonesia (active, valid until 14 April 2027). Clients may request proof of license at any time before deciding.
+- Approach: CRP works as an advisor, not a product seller. It analyzes the client's finances and risks first, designs tailored solutions (not standard packages), and applies no pressure to buy.
+- Existing policies: clients do not have to replace them. CRP audits existing policies first, keeps those that still serve the client well, and only suggests additions or changes where there is a real protection gap.
+- The initial consultation is free, with no obligation to purchase. CRP maps the client's needs and the client decides whether to proceed.
+- Process steps: (1) introduction, (2) analysis of current financial position, (3) designing the solution, (4) the client personally completes and signs the policy application, (5) periodic policy reviews.
+- Business protection (for owners/managers, including family businesses): revenue and income protection, keyman insurance for key executives and shareholders, and property, cargo and commercial liability cover, so the business keeps running if something happens to a vital person or asset.
+- Expat health insurance is a core service. CRP learns the client's situation (residence, family, budget, preferred place of treatment: Indonesia, home country or worldwide), compares suitable plans and explains what each covers, reviews any existing employer or international plan (suggesting changes only for real gaps), recommends while the client decides, and keeps reviewing coverage after the policy is active.
+- Regency for Expats coverage stays usable when the client is in another country or returns home, subject to the policy's terms and conditions; there is no need to switch insurance just because of relocation.
+- Claims at hospitals outside Indonesia are possible subject to policy terms and conditions: for non-urgent cases pre-admission must be completed before admission; for emergencies admission is handled in parallel and the client can also claim through reimbursement. CRP helps clients understand this procedure before they need it.
 
 If asked something unrelated to CRP's services, or something you don't have facts for, politely say you don't have that information and suggest the contact form or booking a private consultation.`;
 
