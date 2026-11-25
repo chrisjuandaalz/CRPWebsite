@@ -50,6 +50,9 @@
     #post-body th, #post-body td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #1E2D4A; vertical-align: top; }
     #post-body th { color: #C5A880; font-weight: 700; white-space: nowrap; background: rgba(197, 168, 128, 0.08); }
     #post-body tbody tr:last-child td { border-bottom: none; }
+    /* Per-article option (wide_table): no wrapped cell text; table may exceed the text column, swipe on small screens */
+    #post-body.wide-table .table-scroll { width: max-content; max-width: calc(100vw - 2rem); margin-left: 50%; transform: translateX(-50%); }
+    #post-body.wide-table th, #post-body.wide-table td { white-space: nowrap; font-size: 0.8125rem; padding: 0.75rem; }
   </style>
 </head>
 <body class="bg-[#0A192F] text-[#E2E8F0] antialiased selection:bg-[#C5A880] selection:text-[#0A192F]">
@@ -128,7 +131,7 @@
     <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">The Inheritance Map: From Day One Until Assets Can Be Used by the Family</h1>
     <div class="text-xs text-slate-500 mb-8">By Christian Juanda &bull; November 25, 2026</div>
     <img src="/assets/images/blog/2026-11-25-the-inheritance-map-from-day-one-until-assets-can-be-used-by-the-family.jpg" alt="The Inheritance Map: From Day One Until Assets Can Be Used by the Family" class="w-full rounded-2xl mb-10 object-cover max-h-[420px]">
-    <div id="post-body" class="text-slate-300"><p><em>Image is for illustration only.</em></p>
+    <div id="post-body" class="text-slate-300 wide-table"><p><em>Image is for illustration only.</em></p>
 <blockquote>
 <p>Inheritance that isn&#39;t prepared doesn&#39;t disappear. It gets stuck: the assets are there, but the family cannot use them at the moment they need cash most.</p>
 </blockquote>
