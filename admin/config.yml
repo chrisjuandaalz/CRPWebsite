@@ -23,3 +23,4 @@ collections:
       - { label: "Cover Image", name: "image", widget: "image", required: false }
       - { label: "Body Content (English)", name: "body", widget: "markdown" }
       - { label: "Body Content (Bahasa Indonesia)", name: "body_id", widget: "markdown", required: false, hint: "Leave blank to fall back to the English body on the Indonesian site." }
+      - { label: "Wide table (no wrapped text)", name: "wide_table", widget: "boolean", required: false, default: false }

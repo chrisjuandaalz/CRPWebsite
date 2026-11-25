@@ -290,6 +290,9 @@ function renderPostPage(post, lang) {
     #post-body th, #post-body td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #1E2D4A; vertical-align: top; }
     #post-body th { color: #C5A880; font-weight: 700; white-space: nowrap; background: rgba(197, 168, 128, 0.08); }
     #post-body tbody tr:last-child td { border-bottom: none; }
+    /* Per-article option (wide_table): no wrapped cell text; table may exceed the text column, swipe on small screens */
+    #post-body.wide-table .table-scroll { width: max-content; max-width: calc(100vw - 2rem); margin-left: 50%; transform: translateX(-50%); }
+    #post-body.wide-table th, #post-body.wide-table td { white-space: nowrap; font-size: 0.8125rem; padding: 0.75rem; }
   </style>
 </head>
 <body class="bg-[#0A192F] text-[#E2E8F0] antialiased selection:bg-[#C5A880] selection:text-[#0A192F]">
@@ -303,7 +306,7 @@ ${siteHeader(lang, true)}
     <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">${escapeHtml(title)}</h1>
     <div class="text-xs text-slate-500 mb-8">${s.byAuthor} &bull; ${formatDate(post.date, LANGS[lang].dateLocale)}</div>
     ${post.image ? `<img src="${escapeHtml(post.image)}" alt="${escapeHtml(title)}" class="w-full rounded-2xl mb-10 object-cover max-h-[420px]">` : ''}
-    <div id="post-body" class="text-slate-300">${bodyHtml}</div>
+    <div id="post-body" class="text-slate-300${post.wide_table ? ' wide-table' : ''}">${bodyHtml}</div>
   </main>
 
 ${siteFooter(lang)}
